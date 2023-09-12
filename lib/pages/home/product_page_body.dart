@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:get/get.dart';
 
+import '../../controllers/product_menu_controller.dart';
+import '../../models/products_model.dart';
 import '../../routes/route_helper.dart';
 import '../../utils/app_constants.dart';
 import '../../utils/colors.dart';
@@ -20,6 +22,7 @@ class FoodPageBody extends StatefulWidget {
 
 class _FoodPageBodyState extends State<FoodPageBody> {
   PageController pageController = PageController(viewportFraction: 0.88);
+  final _totalDots = 4;
   var _currentPageValue = 0.0;
   double _scaleFactor = 0.8;
   double _height = Dimensions.pageViewContainer;
@@ -45,15 +48,15 @@ class _FoodPageBodyState extends State<FoodPageBody> {
     return Column(
       children: [
         // Slider Section
-        GetBuilder<PopularProductController>(builder: (popularProducts){
+        GetBuilder<ProductMenuController>(builder: (popularProducts){
           return popularProducts.isLoaded?SizedBox(
             height: Dimensions.pageView,
 
               child: PageView.builder(
                   controller: pageController,
-                  itemCount: popularProducts.popularProductList.length,
+                  itemCount: popularProducts.productMenuList.length,
                   itemBuilder: (context, position){
-                    return _buildPageItem(position, popularProducts.popularProductList[position]);
+                    return _buildPageItem(position, popularProducts.productMenuList[position]);
                   }),
 
           ):
@@ -62,9 +65,9 @@ class _FoodPageBodyState extends State<FoodPageBody> {
           );
         }),
         //Dots
-        GetBuilder<PopularProductController>(builder: (popularProducts){
+        GetBuilder<ProductMenuController>(builder: (popularProducts){
           return DotsIndicator(
-            dotsCount: popularProducts.popularProductList.isEmpty?1:popularProducts.popularProductList.length,
+            dotsCount: _totalDots,
             position: _currentPageValue,
             decorator: DotsDecorator(
               activeColor: AppColors.mainColor,
@@ -125,7 +128,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                               image: DecorationImage(
                                 fit: BoxFit.cover,
                                   image: NetworkImage(
-                                      "${AppConstants.BASE_URL+AppConstants.UPLOAD_URL}${productMenu.productMenuList[index].img!}"
+                                      "${AppConstants.BASE_URL+AppConstants.ALL_PRODUCT_URI}${productMenu.productMenuList[index].img!}"
                                   )
                               )
 
@@ -207,7 +210,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
         children: [
           GestureDetector(
             onTap: (){
-              Get.toNamed(RouteHelper.getPopularFood(index, "home"));
+              Get.toNamed(RouteHelper.getFoodMenu(index, "home"));
             },
             child: Container(
               height: Dimensions.pageViewContainer,
@@ -225,7 +228,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                   image: DecorationImage(
                       fit: BoxFit.cover,
                       image: NetworkImage(
-                          "${AppConstants.BASE_URL+AppConstants.UPLOAD_URL}${popularProduct.img!}"
+                          "${AppConstants.BASE_URL+AppConstants.ALL_PRODUCT_URI}${popularProduct.img!}"
                       )
                   )
               ),

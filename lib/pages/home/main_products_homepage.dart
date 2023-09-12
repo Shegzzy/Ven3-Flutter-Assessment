@@ -7,7 +7,7 @@ import '../../utils/colors.dart';
 import '../../utils/dimensions.dart';
 import '../../widgets/big_text.dart';
 import '../../widgets/small_text.dart';
-import 'food_page_body.dart';
+import 'product_page_body.dart';
 
 class MainFoodPage extends StatefulWidget {
   const MainFoodPage({Key? key}) : super(key: key);

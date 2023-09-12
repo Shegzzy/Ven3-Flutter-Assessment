@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:grocery_store/routes/route_helper.dart';
-
 import '../../controllers/product_menu_controller.dart';
 import '../../utils/app_constants.dart';
 import '../../utils/colors.dart';
@@ -29,41 +27,14 @@ class RecommendedFoodDetails extends StatelessWidget {
             title: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                GestureDetector(
-                    onTap: (){
-                      if(page == "cartpage"){
-                        Get.toNamed(RouteHelper.cartPage);
-                      }else{
-                        Get.back();
-                      }
-                    },
-                  child: const AppIcon(icon: Icons.clear_sharp),
-                ),
-                GetBuilder<PopularProductController>(builder: (controller){
-                  return Stack(
-                    children: [
-                      GestureDetector(
-                          onTap: (){
-                            Get.toNamed(RouteHelper.cartPage);
-                          },
-                          child: const AppIcon(icon: Icons.shopping_cart_outlined)),
-                      Get.find<PopularProductController>().totalItems >= 1 ?
-                      Positioned(
-                          right:0,
-                          top:0,
-                          child: AppIcon(icon: Icons.circle, size: 15, backgroundColor: AppColors.mainColor, iconColor:Colors.transparent)):
-                      Container(),
-                      Get.find<PopularProductController>().totalItems >= 1 ?
-                      Positioned(
-                          right:4,
-                          top:1,
-                          child:
-                          BigText(text: Get.find<PopularProductController>().totalItems.toString(), size: 12, color: Colors.white,)
-                      ):
-                      Container()
-                    ],
-                  );
-                })              ],
+                AppIcon(
+                    size: Dimensions.icon16,
+                    icon: Icons.clear_sharp),
+                AppIcon(
+                    icon: Icons.shopping_cart_outlined,
+                    size: Dimensions.icon16,
+                )
+              ],
             ),
             bottom: PreferredSize(preferredSize: const Size.fromHeight(20),
               child: Container(
@@ -86,7 +57,7 @@ class RecommendedFoodDetails extends StatelessWidget {
             expandedHeight: 300,
             flexibleSpace: FlexibleSpaceBar(
               background: Image.network(
-                AppConstants.BASE_URL+AppConstants.UPLOAD_URL+product.img,
+                AppConstants.BASE_URL+AppConstants.SINGLE_PRODUCT_URI+product.img,
                   width: double.maxFinite,
                   fit: BoxFit.cover,
 
@@ -107,7 +78,7 @@ class RecommendedFoodDetails extends StatelessWidget {
           )
         ],
       ),
-      bottomNavigationBar: GetBuilder<PopularProductController>(builder: (controller){
+      bottomNavigationBar: GetBuilder<ProductMenuController>(builder: (controller){
         return Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -165,23 +136,18 @@ class RecommendedFoodDetails extends StatelessWidget {
                         size: Dimensions.icon24,
                       )
                   ),
-                  GestureDetector(
-                    onTap: (){
-                      controller.addItem(product);
-                    },
-                    child: Container(
-                      padding: EdgeInsets.only(left: Dimensions.width15, right: Dimensions.width15, top: Dimensions.height10, bottom: Dimensions.height10),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(Dimensions.radius15),
-                        color: AppColors.mainColor,
-                      ),
-                      child: Row(
-                        children: [
-                          BigText(text: "\$${product.price!} Add to cart", color: Colors.white,),
-                        ],
-                      ),
+                  Container(
+                    padding: EdgeInsets.only(left: Dimensions.width15, right: Dimensions.width15, top: Dimensions.height10, bottom: Dimensions.height10),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(Dimensions.radius15),
+                      color: AppColors.mainColor,
                     ),
-                  )
+                    child: Row(
+                      children: [
+                        BigText(text: "\$${product.price!} Add to cart", color: Colors.white,),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),

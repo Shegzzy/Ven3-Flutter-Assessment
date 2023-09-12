@@ -9,6 +9,6 @@ class ProductMenuRepo extends GetxService{
   ProductMenuRepo({required this.apiClient});
 
   Future<Response> getProductMenuList() async{
-    return await apiClient.getData(AppConstants.PRODUCT_MENU_URI);
+    return await apiClient.getData(AppConstants.ALL_PRODUCT_URI);
   }
 }

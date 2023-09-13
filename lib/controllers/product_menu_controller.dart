@@ -27,6 +27,7 @@ class ProductMenuController extends GetxController{
       _productMenuList=[];
       _productMenuList.addAll(Product.fromJson(response.body).products);
       _isLoaded = true;
+      print("Products: $_productMenuList");
       update();
     }else{
 

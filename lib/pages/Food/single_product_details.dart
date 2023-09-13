@@ -16,7 +16,6 @@ class RecommendedFoodDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var product = Get.find<ProductMenuController>().productMenuList[pageId];
-    // Get.find<PopularProductController>().initProduct(product, Get.find<CartController>());
     return Scaffold(
       backgroundColor: Colors.white,
       body: CustomScrollView(
@@ -27,9 +26,15 @@ class RecommendedFoodDetails extends StatelessWidget {
             title: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                AppIcon(
-                    size: Dimensions.icon16,
-                    icon: Icons.clear_sharp),
+                GestureDetector(
+                  onTap: (){
+                    Get.back();
+                  },
+                  child: AppIcon(
+                      size: Dimensions.icon24+4,
+                      icon: Icons.clear_sharp
+                  ),
+                ),
                 AppIcon(
                     icon: Icons.shopping_cart_outlined,
                     size: Dimensions.icon16,
@@ -57,10 +62,9 @@ class RecommendedFoodDetails extends StatelessWidget {
             expandedHeight: 300,
             flexibleSpace: FlexibleSpaceBar(
               background: Image.network(
-                AppConstants.BASE_URL+AppConstants.SINGLE_PRODUCT_URI+product.img,
+                product.img,
                   width: double.maxFinite,
                   fit: BoxFit.cover,
-
               ),
             ),
           ),

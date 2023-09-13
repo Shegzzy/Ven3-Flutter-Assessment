@@ -13,26 +13,24 @@ class Product {
 
   }
 
-  Product.fromJson(Map<String, dynamic> json) {
-    _totalSize = json['total_size'];
-    _typeId = json['type_id'];
-    _offset = json['offset'];
-    if (json['products'] != null) {
-      _products = <ProductModel>[];
-      json['products'].forEach((v) {
-        _products.add(ProductModel.fromJson(v));
-      });
-    }
+  Product.fromJson(List<dynamic> json) {
+    _totalSize = json.length;
+    print("Quantity $_totalSize");
+    _products = <ProductModel>[];
+    json.forEach((v) {
+      _products.add(ProductModel.fromJson(v));
+    });
   }
+
 
 }
 
 class ProductModel {
-  int? id;
+  String? id;
   String? name;
   String? description;
-  int? price;
-  int? stars;
+  String? price;
+  String? size;
   String? img;
   String? location;
   String? createdAt;
@@ -44,20 +42,21 @@ class ProductModel {
         this.name,
         this.description,
         this.price,
-        this.stars,
+        this.size,
         this.img,
         this.location,
         this.createdAt,
         this.updatedAt,
-        this.typeId});
+        this.typeId}
+      );
 
   ProductModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
     description = json['description'];
     price = json['price'];
-    stars = json['stars'];
-    img = json['img'];
+    size = json['size'];
+    img = json['image'];
     location = json['location'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];

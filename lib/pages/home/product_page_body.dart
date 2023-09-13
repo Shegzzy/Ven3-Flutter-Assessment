@@ -30,6 +30,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
   @override
   void initState(){
     super.initState();
+    Get.find<ProductMenuController>().getProductMenuList();
     pageController.addListener(() {
       setState(() {
         _currentPageValue = pageController.page!;
@@ -80,7 +81,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
 
         SizedBox(height: Dimensions.height20,),
 
-        // Food List Heading
+        //Product Heading
         Container(
           margin: EdgeInsets.only(left: Dimensions.width30),
           child: Row(
@@ -89,13 +90,13 @@ class _FoodPageBodyState extends State<FoodPageBody> {
               BigText(text: "Our Menu"),
               SizedBox(width: Dimensions.width10,),
               Container(
-                margin: EdgeInsets.only(bottom: 3),
+                margin: EdgeInsets.only(bottom: Dimensions.height10-5),
                 child: BigText(text: ".", color: Colors.black26,),
 
               ),
               SizedBox(width: Dimensions.width10,),
               Container(
-                margin: EdgeInsets.only(bottom: 3),
+                margin: EdgeInsets.only(bottom:  Dimensions.height10-5),
                 child: SmallText(text: "Food Pairing",),
               )
             ],
@@ -103,7 +104,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
         ),
 
 
-        //Food Menu List
+        //ProductList
         GetBuilder<ProductMenuController>(builder: (productMenu){
           return ListView.builder(
               physics: NeverScrollableScrollPhysics(),
@@ -128,7 +129,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                               image: DecorationImage(
                                 fit: BoxFit.cover,
                                   image: NetworkImage(
-                                      "${AppConstants.BASE_URL+AppConstants.ALL_PRODUCT_URI}${productMenu.productMenuList[index].img!}"
+                                      "${productMenu.productMenuList[index].img!}"
                                   )
                               )
 
@@ -228,7 +229,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                   image: DecorationImage(
                       fit: BoxFit.cover,
                       image: NetworkImage(
-                          "${AppConstants.BASE_URL+AppConstants.ALL_PRODUCT_URI}${popularProduct.img!}"
+                          popularProduct.img!
                       )
                   )
               ),

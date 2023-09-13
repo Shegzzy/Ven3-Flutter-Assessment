@@ -28,9 +28,10 @@ class RouteHelper{
     GetPage(name: foodMenu, page: () {
       var pageId = Get.parameters['pageId'];
       var page = Get.parameters["page"];
-      return RecommendedFoodDetails(pageId:int.parse(pageId!), page:page!);
+      return RecommendedFoodDetails(pageId: int.parse(pageId!), page: page!);
     },
         transition: Transition.rightToLeftWithFade
     ),
+
   ];
 }

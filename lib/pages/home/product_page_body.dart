@@ -87,7 +87,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              BigText(text: "Our Menu"),
+              BigText(text: "In Store"),
               SizedBox(width: Dimensions.width10,),
               Container(
                 margin: EdgeInsets.only(bottom: Dimensions.height10-5),

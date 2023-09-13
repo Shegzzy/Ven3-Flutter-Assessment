@@ -17,7 +17,6 @@ class MainFoodPage extends StatefulWidget {
 }
 
 Future<void> _reLoadResources() async {
-  // await Get.find<PopularProductController>().getPopularProductList();
   await Get.find<ProductMenuController>().getProductMenuList();
 }
 
@@ -35,24 +34,23 @@ class _MainFoodPageState extends State<MainFoodPage> {
             children: [
               Column(
                 children: [
-                  BigText(text: "Lokoja", color: AppColors.mainColor),
+                  BigText(text: "Lokoja", color: AppColors.iconColor1),
                   Row(
                     children: [
                       SmallText(text: "Kogi"),
-                      const Icon(Icons.arrow_drop_down_rounded)
+                      Icon(Icons.arrow_drop_down_rounded, size: Dimensions.icon16,)
                     ],
                   )
                 ],
               ),
               Center(
                 child: Container(
-                  width: Dimensions.height45,
-                  height: Dimensions.height45,
+                  padding: EdgeInsets.all(Dimensions.width10),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(Dimensions.radius15),
-                    color: AppColors.mainColor,
+                    borderRadius: BorderRadius.circular(Dimensions.radius15-5),
+                    color: AppColors.iconColor2,
                   ),
-                  child: Icon(Icons.search, color:Colors.white, size: Dimensions.icon24,),
+                  child: Center(child: Icon(Icons.search, color:Colors.white, size: Dimensions.icon24,)),
                 ),
               )
             ],

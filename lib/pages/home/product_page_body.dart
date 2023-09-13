@@ -163,7 +163,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                                     children: [
                                       IconTextWidget(icon: Icons.circle_sharp, size: Dimensions.icon16,
                                           text: "Normal",
-                                          iconColor: AppColors.iconColor1),
+                                          iconColor: AppColors.iconColor2),
                                       IconTextWidget(icon: Icons.location_city, size: Dimensions.icon16,
                                           text: "Service",
                                           iconColor: AppColors.iconColor2),
@@ -244,22 +244,22 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             alignment: Alignment.bottomCenter,
             child: Container(
               height: Dimensions.pageViewTextContainer,
-              margin: EdgeInsets.only(left: Dimensions.width30+5, right: Dimensions.width30+5, bottom: Dimensions.height20),
+              margin: EdgeInsets.only(left: Dimensions.width30, right: Dimensions.width30, bottom: Dimensions.height20),
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(Dimensions.radius20),
-                  color: Colors.white,
-                boxShadow: const [
-                  BoxShadow(
+                  color: AppColors.containerBackgroundColor,
+                boxShadow: [
+                  const BoxShadow(
                     color: Color(0xFFe8e8e8),
                     blurRadius: 0.5,
                     offset: Offset(0, 5)
                   ),
                   BoxShadow(
-                    color: Colors.white,
+                    color: AppColors.containerBackgroundColor,
                     offset: Offset(-5, 0)
                   ),
                   BoxShadow(
-                    color: Colors.white,
+                    color: AppColors.containerBackgroundColor,
                     offset: Offset(5, 0)
                   )
                 ]

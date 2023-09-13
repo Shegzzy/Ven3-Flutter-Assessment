@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grocery_store/utils/dimensions.dart';
 import '../../utils/colors.dart';
 import 'main_products_homepage.dart';
 
@@ -16,60 +17,10 @@ class _HomePageState extends State<HomePage> {
   List pages =[
     const MainFoodPage(),
     const Center(child: Text("History Page")),
-    // const CartHistory(),
-    // const ProfilePage(),
+    const Center(child: Text("Cart Page"),),
+    const Center(child: Text("Profile Page"),),
 
   ];
-  // Going to the selected tab page
-/*
-  void initState(){
-    super.initState();
-    _controller = PersistentTabController(initialIndex: 0);
-
-  }
-*/
-
-
-  List<Widget> _buildScreens() {
-    return [
-      MainFoodPage(),
-      Container(child: Center(child: Text("Page 1"),),),
-      Container(child: Center(child: Text("Page 2"),),),
-      Container(child: Center(child: Text("Page 3"),),),
-    ];
-  }
-
-
-/*
-  List<PersistentBottomNavBarItem> _navBarsItems() {
-    return [
-      PersistentBottomNavBarItem(
-        icon: Icon(CupertinoIcons.home),
-        title: ("Home"),
-        activeColorPrimary: CupertinoColors.activeBlue,
-        inactiveColorPrimary: CupertinoColors.systemGrey,
-      ),
-      PersistentBottomNavBarItem(
-        icon: Icon(CupertinoIcons.archivebox_fill),
-        title: ("History"),
-        activeColorPrimary: CupertinoColors.activeBlue,
-        inactiveColorPrimary: CupertinoColors.systemGrey,
-      ),
-      PersistentBottomNavBarItem(
-        icon: Icon(CupertinoIcons.cart_fill),
-        title: ("Cart"),
-        activeColorPrimary: CupertinoColors.activeBlue,
-        inactiveColorPrimary: CupertinoColors.systemGrey,
-      ),
-      PersistentBottomNavBarItem(
-        icon: Icon(CupertinoIcons.person_solid),
-        title: ("Me"),
-        activeColorPrimary: CupertinoColors.activeBlue,
-        inactiveColorPrimary: CupertinoColors.systemGrey,
-      ),
-    ];
-  }
-*/
 
 
   void onTapNav(int index){
@@ -82,30 +33,30 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: pages[selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: AppColors.mainColor,
-        unselectedItemColor: Colors.amberAccent,
+        selectedItemColor: AppColors.iconColor1,
+        unselectedItemColor: AppColors.iconColor2,
         showSelectedLabels: false,
         showUnselectedLabels: false,
         currentIndex: selectedIndex,
         selectedFontSize: 0.0,
         unselectedFontSize: 0.0,
         onTap: onTapNav,
-        items: const [
+        items: [
           BottomNavigationBarItem(
-              icon: Icon( Icons.home_sharp),
+              icon: Icon( Icons.home_sharp, size: Dimensions.icon24-2,),
               label: "Home"
           ),
           BottomNavigationBarItem(
-              icon: Icon( Icons.history),
+              icon: Icon( Icons.history, size: Dimensions.icon24-2,),
               label: "history"
           ),
           BottomNavigationBarItem(
-              icon: Icon( Icons.shopping_cart),
+              icon: Icon( Icons.shopping_cart, size: Dimensions.icon24-2,),
               label: "cart"
 
           ),
           BottomNavigationBarItem(
-              icon: Icon( Icons.person_2_rounded),
+              icon: Icon( Icons.person_2_rounded, size: Dimensions.icon24-2,),
               label: "me"
 
           ),
@@ -114,36 +65,4 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
-
-/*  @override
-  Widget build(BuildContext context) {
-    return PersistentTabView(
-      context,
-      controller: _controller,
-      screens: _buildScreens(),
-      items: _navBarsItems(),
-      confineInSafeArea: true,
-      backgroundColor: Colors.white, // Default is Colors.white.
-      handleAndroidBackButtonPress: true, // Default is true.
-      resizeToAvoidBottomInset: true, // This needs to be true if you want to move up the screen when keyboard appears. Default is true.
-      stateManagement: true, // Default is true.
-      hideNavigationBarWhenKeyboardShows: true, // Recommended to set 'resizeToAvoidBottomInset' as true while using this argument. Default is true.
-      decoration: NavBarDecoration(
-        borderRadius: BorderRadius.circular(10.0),
-        colorBehindNavBar: Colors.white,
-      ),
-      popAllScreensOnTapOfSelectedTab: true,
-      popActionScreens: PopActionScreensType.all,
-      itemAnimationProperties: ItemAnimationProperties( // Navigation Bar's items animation properties.
-        duration: Duration(milliseconds: 200),
-        curve: Curves.ease,
-      ),
-      screenTransitionAnimation: ScreenTransitionAnimation( // Screen transition animation on change of selected tab.
-        animateTabTransition: true,
-        curve: Curves.easeInCirc,
-        duration: Duration(milliseconds: 200),
-      ),
-      navBarStyle: NavBarStyle.style19, // Choose the nav bar style with this property.
-    );
-  }*/
 }

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:grocery_store/widgets/small_text.dart';
 import '../../controllers/product_menu_controller.dart';
-import '../../utils/app_constants.dart';
 import '../../utils/colors.dart';
 import '../../utils/dimensions.dart';
 import '../../widgets/app_icon.dart';
@@ -149,8 +148,10 @@ class RecommendedFoodDetails extends StatelessWidget {
                       children: [
                         BigText(text: "Product Details", size: Dimensions.font10+5,),
                         SizedBox(height: Dimensions.height10-5),
+                        SmallText(text: "Category: ${product.category!}", size: Dimensions.font10+2),
+                        SizedBox(height: Dimensions.height10-5),
                         ExpandableText(
-                            text: product.description!
+                            text: product.description!,
                         ),
                       ],
                     ),
@@ -183,8 +184,8 @@ class RecommendedFoodDetails extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Container(
-              height: Dimensions.height120-10,
-              padding: EdgeInsets.only(top: Dimensions.height30, bottom: Dimensions.height30, left: Dimensions.width20, right: Dimensions.width20),
+              height: Dimensions.height120-30,
+              padding: EdgeInsets.only(top: Dimensions.height20, bottom: Dimensions.height20, left: Dimensions.width20, right: Dimensions.width20),
               decoration: BoxDecoration(
                   color: AppColors.containerBackgroundColor,
                   borderRadius: BorderRadius.only(

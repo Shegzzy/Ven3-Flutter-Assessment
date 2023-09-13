@@ -20,7 +20,7 @@ class AppColumn extends StatelessWidget {
         Row(
           children: [
             Wrap(
-                children: List.generate(5, (index) => Icon(Icons.star, color:AppColors.mainColor, size: 15),
+                children: List.generate(5, (index) => Icon(Icons.star, color:AppColors.iconColor2, size: 15),
                 )
             ),
             SizedBox(width: Dimensions.width10,),
@@ -28,7 +28,7 @@ class AppColumn extends StatelessWidget {
             SizedBox(width: Dimensions.width10,),
             SmallText(text: "Rating"),
             SizedBox(width: Dimensions.width10,),
-            SmallText(text: "1320")
+            SmallText(text: "1,320")
           ],
         ),
         SizedBox(height: Dimensions.height15,),
@@ -37,7 +37,7 @@ class AppColumn extends StatelessWidget {
           children: [
             IconTextWidget(icon: Icons.circle_sharp, size: Dimensions.icon24,
                 text: "Normal",
-                iconColor: AppColors.iconColor1),
+                iconColor: AppColors.iconColor2),
             IconTextWidget(icon: Icons.location_city, size: Dimensions.icon24,
                 text: "Service",
                 iconColor: AppColors.iconColor2),

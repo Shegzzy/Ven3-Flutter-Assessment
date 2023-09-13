@@ -133,7 +133,7 @@ class RecommendedFoodDetails extends StatelessWidget {
                           })
                       ),
                       BigText(
-                          text: "\$${product.price!}",
+                          text: "₦${product.price!}",
                           size: Dimensions.font10+6,
                       ),
                     ],
@@ -182,15 +182,14 @@ class RecommendedFoodDetails extends StatelessWidget {
         return Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-
             Container(
-              height: Dimensions.height120,
+              height: Dimensions.height120-10,
               padding: EdgeInsets.only(top: Dimensions.height30, bottom: Dimensions.height30, left: Dimensions.width20, right: Dimensions.width20),
               decoration: BoxDecoration(
-                  color: AppColors.buttonBackgroundColor,
+                  color: AppColors.containerBackgroundColor,
                   borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(Dimensions.radius30),
-                    topRight: Radius.circular(Dimensions.radius30),
+                    topLeft: Radius.circular(Dimensions.radius15),
+                    topRight: Radius.circular(Dimensions.radius15),
 
                   )
               ),
@@ -198,12 +197,14 @@ class RecommendedFoodDetails extends StatelessWidget {
                 padding: EdgeInsets.only(left: Dimensions.width15, right: Dimensions.width15, top: Dimensions.height10, bottom: Dimensions.height10),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(Dimensions.radius15),
-                  color: AppColors.mainColor,
+                  color: AppColors.buttonBackgroundColor,
                 ),
-                child: Row(
-                  children: [
-                    BigText(text: "\$${product.price!} Add to cart", color: Colors.white,),
-                  ],
+                child: Center(
+                    child: BigText(
+                      text: "Add to Cart",
+                      color: Colors.white,
+                      size: Dimensions.font18-3,
+                    )
                 ),
               ),
             ),

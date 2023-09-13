@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:get/get.dart';
@@ -22,7 +24,7 @@ class FoodPageBody extends StatefulWidget {
 
 class _FoodPageBodyState extends State<FoodPageBody> {
   PageController pageController = PageController(viewportFraction: 0.88);
-  final _totalDots = 4;
+  final _totalDots = 5;
   var _currentPageValue = 0.0;
   double _scaleFactor = 0.8;
   double _height = Dimensions.pageViewContainer;
@@ -55,7 +57,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
 
               child: PageView.builder(
                   controller: pageController,
-                  itemCount: popularProducts.productMenuList.length,
+                  itemCount: min(5, popularProducts.productMenuList.length),
                   itemBuilder: (context, position){
                     return _buildPageItem(position, popularProducts.productMenuList[position]);
                   }),
@@ -71,7 +73,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             dotsCount: _totalDots,
             position: _currentPageValue,
             decorator: DotsDecorator(
-              activeColor: AppColors.mainColor,
+              activeColor: AppColors.buttonBackgroundColor,
               size: const Size.square(9.0),
               activeSize: const Size(18.0, 9.0),
               activeShape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
@@ -149,9 +151,12 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  BigText(text: productMenu.productMenuList[index].name!),
+                                  BigText(
+                                      text: productMenu.productMenuList[index].name!,
+                                      size: Dimensions.font10+4,
+                                  ),
                                   SizedBox(height: Dimensions.height10,),
-                                  SmallText(text: "Fried chicken with catchup's"),
+                                  SmallText(text: productMenu.productMenuList[index].category),
                                   SizedBox(height: Dimensions.height10,),
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,

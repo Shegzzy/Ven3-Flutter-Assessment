@@ -38,7 +38,7 @@ flutter run
 
 # Or
 1. Unzip the downloaded zipped file
-2. Open the folder in any of your Android Studio
+2. Open the folder in your Android Studio
 3. Navigate to a file named "pubspec.yaml" and click on pub get
 4. Run the code by clicking on the play icon located at the top of the Android Studio
 

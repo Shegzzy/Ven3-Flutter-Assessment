@@ -7,10 +7,12 @@ This is an online grocery shopping app that enables users to buy their groceries
 * Displays a splash screen then navigates to an intro screen.
 * The intro screen displays a button for users to get started with the app
 * The app opens up a friendly UI displaying all the groceries in the store with their details.
+* This app also follows the MVVM architecture pattern
 
   
 # Appetize Link
 Here is a link for a quick preview of how the app runs
+
 Device Pixel 4. Version: 12.0. Scale: 75%
 ```
 https://appetize.io/app/uc3nonyj3kcl5ihvxdsay74tea?device=pixel4&osVersion=12.0&scale=75

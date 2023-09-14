@@ -46,8 +46,8 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
     ).animate(CurvedAnimation(parent: bottomAnimationController, curve: Curves.linearToEaseOut));
 
     Timer(
-      const Duration(seconds: 5),
-          () => Get.offNamed(RouteHelper.getInitial()),
+      const Duration(seconds: 7),
+          () => Get.offNamed(RouteHelper.intro),
     );
   }
 

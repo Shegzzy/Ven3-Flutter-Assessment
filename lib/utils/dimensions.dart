@@ -30,12 +30,12 @@ class Dimensions{
   static double font18 = screenHeight/39;
   static double font10 = screenHeight/70.2;
 
-  //Dynamic boderradius
+  //Dynamic border radius
   static double radius15 = screenHeight/46.8;
   static double radius20 = screenHeight/35.1;
   static double radius30 = screenHeight/23.4;
 
-  //Iconsize
+  //Icon size
   static double icon24 = screenHeight/29.25;
   static double icon16 = screenHeight/43.87;
 
@@ -47,6 +47,6 @@ class Dimensions{
   static double popularFoodSize = screenHeight/2.0;
 
   // splash screen image
-  static double splashImg = screenHeight/2.80;
+  static double splashImg = screenHeight/5.80;
 
 }

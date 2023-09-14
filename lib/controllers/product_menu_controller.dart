@@ -12,9 +12,6 @@ class ProductMenuController extends GetxController{
   List<dynamic> _productMenuList=[];
   List<dynamic> get productMenuList => _productMenuList;
 
-  List<dynamic> _productCategoryList=[];
-  List<dynamic> get productCategoryList => _productCategoryList;
-
   bool _isLoaded = false;
   bool get isLoaded => _isLoaded;
 
@@ -29,23 +26,11 @@ class ProductMenuController extends GetxController{
     if(response.statusCode==200){
       _productMenuList=[];
       _productMenuList.addAll(Product.fromJson(response.body).products);
-      extractCategories();
       _isLoaded = true;
       update();
     }else{
 
     }
-  }
-
-  List<String> _categories = [];
-  List<String> get categories => _categories;
-
-  void extractCategories() {
-    _categories = _productMenuList
-        .map<String>((product) => product.category)
-        .toSet()
-        .toList();
-    update();
   }
 
   void setQuantity(bool isIncreament){

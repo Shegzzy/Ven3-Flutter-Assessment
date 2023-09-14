@@ -118,7 +118,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                     Get.toNamed(RouteHelper.getFoodMenu(index, "recommended food page"));
                   },
                   child: Container(
-                    margin: EdgeInsets.only(left: Dimensions.width30/2, right: Dimensions.width30/2, bottom: Dimensions.height10),
+                    margin: EdgeInsets.only(left: Dimensions.width30/2, right: Dimensions.width30/2, bottom: Dimensions.height20),
                     child: Row(
                       children: [
                         //Image container
@@ -128,6 +128,13 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(Dimensions.radius20),
                               color: Colors.white38,
+                              boxShadow: const [
+                                BoxShadow(
+                                    color: Color(0xFFe8e8e8),
+                                    blurRadius: 2.5,
+                                    offset: Offset(0, 5)
+                                )
+                              ],
                               image: DecorationImage(
                                 fit: BoxFit.cover,
                                   image: NetworkImage(
@@ -142,8 +149,24 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                         Expanded(
                           child: Container(
                             height: Dimensions.listViewTextSize,
-                            decoration: const BoxDecoration(
-                              color: Colors.white70,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(Dimensions.radius20),
+                              color: AppColors.containerBackgroundColor,
+                                boxShadow: [
+                                  const BoxShadow(
+                                      color: Color(0xFFe8e8e8),
+                                      blurRadius: 0.5,
+                                      offset: Offset(0, 5)
+                                  ),
+                                  BoxShadow(
+                                      color: AppColors.containerBackgroundColor,
+                                      offset: Offset(-5, 0)
+                                  ),
+                                  BoxShadow(
+                                      color: AppColors.containerBackgroundColor,
+                                      offset: Offset(5, 0)
+                                  )
+                                ]
                             ),
                             child: Padding(
                               padding: EdgeInsets.only(left: Dimensions.width15, right: Dimensions.width15),
@@ -156,20 +179,23 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                                       size: Dimensions.font10+4,
                                   ),
                                   SizedBox(height: Dimensions.height10,),
-                                  SmallText(text: productMenu.productMenuList[index].category),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Icon(Icons.category_rounded, size: Dimensions.icon16,
+                                          color: AppColors.iconColor2),
+                                      SizedBox(width: Dimensions.font10-5),
+                                      SmallText(text: productMenu.productMenuList[index].category, size: Dimensions.font10+2,),
+                                    ],
+                                  ),
                                   SizedBox(height: Dimensions.height10,),
                                   Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
-                                      IconTextWidget(icon: Icons.circle_sharp, size: Dimensions.icon16,
-                                          text: "Normal",
-                                          iconColor: AppColors.iconColor2),
-                                      IconTextWidget(icon: Icons.location_city, size: Dimensions.icon16,
-                                          text: "Service",
-                                          iconColor: AppColors.iconColor2),
-                                      IconTextWidget(icon: Icons.access_time_rounded, size: Dimensions.icon16,
-                                          text: "8AM - 8PM",
-                                          iconColor: AppColors.iconColor2)
+                                      Icon(Icons.branding_watermark_rounded, size: Dimensions.icon16-4,
+                                          color: AppColors.iconColor2),
+                                      SizedBox(width: Dimensions.font10-5),
+                                      SmallText(text: productMenu.productMenuList[index].brand, size: Dimensions.font10+1,),
                                     ],
                                   )
 

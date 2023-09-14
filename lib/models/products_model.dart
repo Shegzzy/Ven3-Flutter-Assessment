@@ -24,6 +24,7 @@ class ProductModel {
   String? size;
   String? img;
   String? category;
+  String? brand;
   int? quantity;
 
 
@@ -35,6 +36,7 @@ class ProductModel {
     this.img,
     this.quantity,
     this.category,
+    this.brand,
   });
 
   ProductModel.fromJson(Map<String, dynamic> json) {
@@ -46,38 +48,19 @@ class ProductModel {
     img = json['image'];
     quantity = json['quantity'];
     category = json['category']['name'];
+    brand = json['brand']['name'];
 
   }
 
   Map<String, dynamic> toJson(){
     return {
-      "id":this.id,
-      "name":this.name,
-      "price":this.price,
-      "img":this.img,
-      "quantity":this.quantity,
-    };
-  }
-}
-
-class ProductCategoryModel {
-  String? id;
-  String? name;
-
-
-  ProductCategoryModel({this.id,
-    this.name,
-  });
-
-  ProductCategoryModel.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    name = json['name'];
-  }
-
-  Map<String, dynamic> toJson(){
-    return {
-      "id":this.id,
-      "name":this.name,
+      "id":id,
+      "name":name,
+      "price":price,
+      "image":img,
+      "quantity":quantity,
+      "category":category,
+      "brand":brand
     };
   }
 }

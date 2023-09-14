@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
         ),
         // home: const HomePage(),
-        initialRoute: RouteHelper.initial,
+        initialRoute: RouteHelper.splashScreen,
         getPages: RouteHelper.routes,
       );
     });

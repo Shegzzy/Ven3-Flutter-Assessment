@@ -39,10 +39,12 @@ class RecommendedFoodDetails extends StatelessWidget {
                 AppIcon(
                     icon: Icons.shopping_cart_outlined,
                     size: Dimensions.icon24+4,
+                  iconColor: AppColors.iconColor2,
                   backgroundColor: AppColors.containerBackgroundColor,
                 )
               ],
             ),
+            // Product detail section
             bottom: PreferredSize(preferredSize: const Size.fromHeight(20),
               child: Container(
                 width: double.maxFinite,
@@ -179,6 +181,8 @@ class RecommendedFoodDetails extends StatelessWidget {
           )
         ],
       ),
+
+      // Add to cart button
       bottomNavigationBar: GetBuilder<ProductMenuController>(builder: (controller){
         return Column(
           mainAxisSize: MainAxisSize.min,

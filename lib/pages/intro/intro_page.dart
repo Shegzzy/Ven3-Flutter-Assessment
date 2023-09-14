@@ -36,7 +36,7 @@ class _IntroPageState extends State<IntroPage> with TickerProviderStateMixin{
         decoration: const BoxDecoration(
           image: DecorationImage(
             fit: BoxFit.cover,
-              image:AssetImage("assets/image/intro.jpg"),
+              image:AssetImage("assets/image/introo.png"),
           )
         ),
         child: Stack(
